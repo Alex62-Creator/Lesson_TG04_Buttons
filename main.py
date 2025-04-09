@@ -33,6 +33,15 @@ async def hello_button(message: Message):
 async def bye_button(message: Message):
    await message.answer(f'Пока, {message.from_user.first_name}')
 
+# Обработка команды /help
+@dp.message(Command('help'))
+async def help(message: Message):
+    await message.answer("Этот бот умеет выполнять команды:\n"
+                         "/start - простое меню с Reply-кнопками\n"
+                         "/help - список команд\n"
+                         "/links - Inline-кнопоки с URL-ссылками\n"
+                         "/dynamic - аинамическое изменение клавиатуры")
+
 # Обработка команды /links
 @dp.message(Command('links'))
 async def links(message: Message):
